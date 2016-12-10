@@ -235,5 +235,17 @@ function moveDown() {
 }
 
 function isgameover() {
+        if(nospace(board)&&noMove(board)){
+        	gameOver();
+        }
+}
+function noMove(board){
+    if(canMoveLeft(board)||canMoveRight(board)||canMoveTop(board) ||canMoveDown(board))
+      	return false;
+      
+    return true;
+}
+function gameOver(){
 
+	alert('游戏结束');
 }
