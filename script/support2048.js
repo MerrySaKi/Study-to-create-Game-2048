@@ -122,3 +122,7 @@ function noBlockHorizontalY(row, row2, coll, board) {
 			return false;
 	return true;
 }
+
+function upDataScroe(){
+	$('#scroe').text(scroe);
+}

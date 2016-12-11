@@ -39,6 +39,7 @@ function init() {
 	//初始化设置两个随机位置的随机数字；
 	generateOneNumber();
 	generateOneNumber();
+	scroe = 0;
 }
 
 function updateboardView() {
@@ -146,6 +147,9 @@ function moveLeft() {
 						showMoveAnimation(i, j, i, k);
 						board[i][k] += board[i][j];
 						board[i][j] = 0;
+
+						scroe+=board[i][k];
+						upDataScroe();
 						continue;
 					}
 				};
@@ -173,6 +177,8 @@ function moveRight() {
 						showMoveAnimation(i, j, i, k);
 						board[i][k] += board[i][j];
 						board[i][j] = 0;
+						scroe+=board[i][k];
+						upDataScroe();
 						continue;
 					}
 				}
@@ -199,6 +205,8 @@ function moveUp() {
 						showMoveAnimation(i, j, k, j);
 						board[k][j] += board[i][j];
 						board[i][j] = 0;
+						scroe+=board[k][j];
+						upDataScroe();
 						continue;
 					}
 				}
@@ -225,6 +233,8 @@ function moveDown() {
 						showMoveAnimation(i, j, k, j);
 						board[k][j] += board[i][j];
 						board[i][j] = 0;
+						scroe+=board[k][j];
+						upDataScroe();
 						continue;
 					}
 				}
@@ -242,10 +252,8 @@ function isgameover() {
 function noMove(board){
     if(canMoveLeft(board)||canMoveRight(board)||canMoveTop(board) ||canMoveDown(board))
       	return false;
-      
     return true;
 }
 function gameOver(){
-
-	alert('游戏结束');
+	window.alert('游戏结束，您的分数是:'+scroe);
 }
